@@ -13,7 +13,7 @@ public class MixinMinecraft {
 
     @Inject(method = "createDisplay", at = @At("RETURN"))
     public void injectCreateDisplay(CallbackInfo ci){
-        Display.setTitle(Client.name + " (" + Client.version + "/" + ")");
+        Display.setTitle(Client.name + " (" + Client.version + "/unknown" + ")");
     }
 
     @Inject(method = "startGame", at = @At("RETURN"))
