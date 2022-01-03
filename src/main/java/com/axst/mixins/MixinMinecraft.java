@@ -18,11 +18,12 @@ public class MixinMinecraft {
 
     @Inject(method = "startGame", at = @At("RETURN"))
     public void injectStartGame(CallbackInfo ci) {
+        Client.onPreInit();
 
     }
 
     @Inject(method = "shutdownMinecraftApplet", at = @At("HEAD"))
     public void injectShutdownMinecraftApplet(CallbackInfo ci) {
-
+        Client.onShutdown();
     }
 }
