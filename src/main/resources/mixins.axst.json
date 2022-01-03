@@ -5,6 +5,7 @@
   "refmap": "mixins.axst.json",
   "verbose": true,
   "mixins": [
-    "MixinMinecraft"
+    "MixinMinecraft",
+    "gui.MixinGuiMainMenu"
   ]
 }
