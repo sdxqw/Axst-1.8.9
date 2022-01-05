@@ -3,13 +3,13 @@ package com.axst.ui;
 import com.axst.utils.GuiUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-public class GuiButtonsIcons extends GuiButtons {
+public class GuiButtonsIcons extends GuiButton {
 
     public ResourceLocation ICON;
     public int sizeIcon;
