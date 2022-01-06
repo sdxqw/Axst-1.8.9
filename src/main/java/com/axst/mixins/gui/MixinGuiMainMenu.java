@@ -34,7 +34,6 @@ public class MixinGuiMainMenu extends GuiScreen {
      *
      * @author xNtrow
      */
-    @Override
     @Overwrite
     public void initGui(){
         DiscordIPC.INSTANCE.update("Idle (Main Menu)","IGN: " + Minecraft.getMinecraft().getSession().getUsername());
@@ -54,7 +53,6 @@ public class MixinGuiMainMenu extends GuiScreen {
      * @description Gui.drawModalRectWithCustomSizedTexture its made by (Fireentr#5845)
      * @author xNtrow
      */
-    @Override
     @Overwrite
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         GlStateManager.pushMatrix();
