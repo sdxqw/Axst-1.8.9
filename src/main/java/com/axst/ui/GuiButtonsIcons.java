@@ -21,6 +21,7 @@ public class GuiButtonsIcons extends GuiButton {
     }
 
     public void drawButton(Minecraft mc, int mouseX, int mouseY){
+        GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
         mc.getTextureManager().bindTexture(ICON);
         this.hovered = (mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height);
@@ -32,6 +33,7 @@ public class GuiButtonsIcons extends GuiButton {
         GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
         GlStateManager.blendFunc(770, 771);
         Gui.drawModalRectWithCustomSizedTexture(this.xPosition + (this.width - sizeIcon) / 2, this.yPosition + (this.height - sizeIcon) / 2, 0, 0, sizeIcon, sizeIcon, (float) sizeIcon, (float) sizeIcon);
+        GlStateManager.popMatrix();
     }
     public int getButtonWidth()
     {

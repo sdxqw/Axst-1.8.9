@@ -15,7 +15,7 @@ public class FontUtil {
     public static Font normal_;
 
     private static Font getFont(Map<String, Font> locationMap, String location, int size) {
-        Font font = null;
+        Font font;
 
         try {
             if (locationMap.containsKey(location)) {
