@@ -2,7 +2,9 @@ package com.axst.mixins.gui;
 
 import com.axst.ui.GuiButtons;
 import com.axst.ui.GuiButtonsIcons;
+import com.axst.utils.DiscordIPC;
 import com.axst.utils.fonts.FontUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -35,6 +37,7 @@ public class MixinGuiMainMenu extends GuiScreen {
     @Override
     @Overwrite
     public void initGui(){
+        DiscordIPC.INSTANCE.update("Idle (Main Menu)","IGN: " + Minecraft.getMinecraft().getSession().getUsername());
         buttonList.add(new GuiButtonsIcons(0, width / 2 + 1, height / 2 + 33, 22, 22, "settings.png", 16));
         buttonList.add(new GuiButtons(1, width / 2 - 92, height / 2 - 16, 180, 20, "S I N G L E P L A Y E R"));
         buttonList.add(new GuiButtons(2, width / 2 - 92, height / 2 + 8, 180, 20, "M U L T I P L A Y E R"));
@@ -60,7 +63,7 @@ public class MixinGuiMainMenu extends GuiScreen {
         GlStateManager.enableBlend();
         GlStateManager.color(1.0F, 1.0F, 1.0F,1.0F);
         this.mc.getTextureManager().bindTexture(BACKGROUND);
-        Gui.drawModalRectWithCustomSizedTexture(-21 + (Mouse.getX() / 90), ((Mouse.getY() * -1 / 90)), 0, 0, width + 20, height + 20, width + 21, height + 20);
+        Gui.drawModalRectWithCustomSizedTexture(-22 + (Mouse.getX() / 90), ((Mouse.getY() * -1 / 90)), 0, 0, width + 20, height + 20, width + 21, height + 20);
         this.mc.getTextureManager().bindTexture(LOGO);
         Gui.drawScaledCustomSizeModalRect(width / 2 - 60, height / 2 - 115, 0,0, 120,120,120,120,120,120);
         GlStateManager.popMatrix();

@@ -29,10 +29,14 @@ public abstract class MixinMinecraft {
         Display.setTitle(Client.name + " (" + Client.version + "/unknown" + ")");
     }
 
-    @Inject(method = "startGame", at = @At("RETURN"))
-    public void injectStartGame(CallbackInfo ci) {
+    @Inject(method = "startGame", at = @At("HEAD"))
+    public void injectStartGame1(CallbackInfo ci) {
         Client.onPreInit();
+    }
 
+    @Inject(method = "startGame", at = @At("RETURN"))
+    public void injectStartGame2(CallbackInfo ci) {
+        Client.start();
     }
 
     @Inject(method = "shutdownMinecraftApplet", at = @At("HEAD"))
