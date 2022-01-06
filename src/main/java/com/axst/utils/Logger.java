@@ -6,10 +6,6 @@ public class Logger {
         System.out.println("[Axst] " + message);
     }
 
-    public static void waring(Object message) {
-        System.out.println("[Axst] " + message);
-    }
-
     public static void error(Object message) {
         System.out.println("[Axst] " + message);
     }

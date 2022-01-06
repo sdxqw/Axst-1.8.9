@@ -19,7 +19,7 @@ public class GuiUtils {
         GL11.glColor4f(r, g, b, a);
     }
 
-    public final static void setGlColor(final int color) {
+    public static void setGlColor(final int color) {
         final float red = (color >> 16 & 0xFF) / 255.0f;
         final float green = (color >> 8 & 0xFF) / 255.0f;
         final float blue = (color & 0xFF) / 255.0f;

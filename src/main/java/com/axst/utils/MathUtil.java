@@ -10,7 +10,7 @@ import net.minecraft.util.*;
 
 public class MathUtil
 {
-    private static final double[] a;
+    public static final double[] a;
     private static final double[] b;
 
     public static double getAngle(int nameInt) {
@@ -31,17 +31,9 @@ public class MathUtil
         return value;
     }
 
-    public static float normalizeValue(final float value, final float valueMin, final float valueMax, final float valueStep) {
-        return MathHelper.clamp_float((snapToStepClamp(value, valueMin, valueMax, valueStep) - valueMin) / (valueMax - valueMin), 0.0f, 1.0f);
-    }
-
     private static float snapToStepClamp(float value, final float valueMin, final float valueMax, final float valueStep) {
         value = snapToStep(value, valueStep);
         return MathHelper.clamp_float(value, valueMin, valueMax);
-    }
-
-    public static float denormalizeValue(final float value, final float valueMin, final float valueMax, final float valueStep) {
-        return snapToStepClamp(valueMin + (valueMax - valueMin) * MathHelper.clamp_float(value, 0.0f, 1.0f), valueMin, valueMax, valueStep);
     }
 
     static {

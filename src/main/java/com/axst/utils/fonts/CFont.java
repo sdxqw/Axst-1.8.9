@@ -117,10 +117,6 @@ public class CFont {
         }
     }
 
-    public boolean isFractionalMetrics() {
-        return this.fractionalMetrics;
-    }
-
     public void setFractionalMetrics(boolean fractionalMetrics) {
         if (this.fractionalMetrics != fractionalMetrics) {
             this.fractionalMetrics = fractionalMetrics;
