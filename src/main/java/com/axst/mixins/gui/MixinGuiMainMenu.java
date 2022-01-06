@@ -32,6 +32,7 @@ public class MixinGuiMainMenu extends GuiScreen {
      *
      * @author xNtrow
      */
+    @Override
     @Overwrite
     public void initGui(){
         buttonList.add(new GuiButtonsIcons(0, width / 2 + 1, height / 2 + 33, 22, 22, "settings.png", 16));
@@ -50,6 +51,7 @@ public class MixinGuiMainMenu extends GuiScreen {
      * @description Gui.drawModalRectWithCustomSizedTexture its made by (Fireentr#5845)
      * @author xNtrow
      */
+    @Override
     @Overwrite
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         GlStateManager.pushMatrix();
