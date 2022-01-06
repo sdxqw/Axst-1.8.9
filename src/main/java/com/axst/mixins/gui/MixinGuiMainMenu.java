@@ -53,9 +53,10 @@ public class MixinGuiMainMenu extends GuiScreen {
     @Overwrite
     public void drawScreen(int mouseX, int mouseY, float partialTicks){
         GlStateManager.pushMatrix();
-        GlStateManager.enableBlend();
+        GlStateManager.enableAlpha();
         GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
-        GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
+        GlStateManager.enableBlend();
+        GlStateManager.color(1.0F, 1.0F, 1.0F,1.0F);
         this.mc.getTextureManager().bindTexture(BACKGROUND);
         Gui.drawModalRectWithCustomSizedTexture(-21 + (Mouse.getX() / 90), ((Mouse.getY() * -1 / 90)), 0, 0, width + 20, height + 20, width + 21, height + 20);
         this.mc.getTextureManager().bindTexture(LOGO);
