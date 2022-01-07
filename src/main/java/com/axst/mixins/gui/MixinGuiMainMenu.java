@@ -3,6 +3,7 @@ package com.axst.mixins.gui;
 import com.axst.ui.GuiButtons;
 import com.axst.ui.GuiButtonsIcons;
 import com.axst.utils.DiscordIPC;
+import com.axst.utils.GuiUtils;
 import com.axst.utils.fonts.FontUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -18,6 +19,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.awt.*;
+import java.io.IOException;
+
 @Mixin(GuiMainMenu.class)
 public class MixinGuiMainMenu extends GuiScreen {
 
@@ -28,6 +32,8 @@ public class MixinGuiMainMenu extends GuiScreen {
     public ResourceLocation BACKGROUND = new ResourceLocation("axst/bg.png");
     String copyright = "Copyright Mojang AB. Do not distribute!";
     String watermark = "Axst Client 1.8.9";
+    Color color;
+    Color colorFont = new Color(255, 255, 255,255);
 
     /**
      * InitGui Overwrite.
@@ -64,6 +70,21 @@ public class MixinGuiMainMenu extends GuiScreen {
         Gui.drawModalRectWithCustomSizedTexture(-22 + (Mouse.getX() / 90), ((Mouse.getY() * -1 / 90)), 0, 0, width + 20, height + 20, width + 21, height + 20);
         this.mc.getTextureManager().bindTexture(LOGO);
         Gui.drawScaledCustomSizeModalRect(width / 2 - 60, height / 2 - 115, 0,0, 120,120,120,120,120,120);
+        if(mc.getSession().getUsername() != null){
+            boolean hovering = mouseX >= 8 && mouseX <= 35 + FontUtil.normal.getStringWidth(mc.getSession().getUsername()) && mouseY <= 22;
+            if(hovering){
+                color = new Color(255,255,255,125);
+
+            }else{
+                color = new Color(255,255,255,75);
+            }
+            ResourceLocation headLocation = GuiUtils.getHeadLocation(mc.getSession().getUsername());
+            mc.getTextureManager().bindTexture(headLocation);
+            GuiUtils.drawRoundOutline(8, 7, (int) ((float)36 + FontUtil.normal.getStringWidth(mc.getSession().getUsername())), 23, 4f, 1.0f,color.getRGB());
+            GuiUtils.drawRoundRect(8, 7, (float)36 + FontUtil.normal.getStringWidth(mc.getSession().getUsername()), 23, 7f, color.getRGB());
+            drawModalRectWithCustomSizedTexture(12, 9, 0,0,12,12, 12, 12);
+            FontUtil.normal.drawStringWithShadow(mc.getSession().getUsername(), 28, 11, colorFont.getRGB());
+        }
         GlStateManager.popMatrix();
         FontUtil.normal.drawString(watermark,4, this.height - 15, -1);
         FontUtil.normal.drawString(copyright, this.width - this.fontRendererObj.getStringWidth(copyright) - 17, this.height - 15, -1);
@@ -80,5 +101,18 @@ public class MixinGuiMainMenu extends GuiScreen {
                 //cosmetics
                 break;
         }
+    }
+
+    @Inject(method = "mouseClicked", at = @At("RETURN"))
+    public void mouseClicked(int mouseX, int mouseY, int mouseButton, CallbackInfo ci) throws IOException {
+        boolean clicked = ((mouseX >= 8)
+                && (mouseX <= (35 + FontUtil.normal.getStringWidth(mc.getSession().getUsername()))))
+                && ((mouseX >= 10)
+                && (mouseY <= 22)
+                && (Mouse.isButtonDown(mouseButton)));
+        if(clicked){
+            mc.displayGuiScreen((null));
+        }
+        super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 }

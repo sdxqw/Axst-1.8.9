@@ -70,6 +70,8 @@ dependencies {
         exclude module: 'log4j'
     }
 
+    compile fileTree(include: ['*.jar'], dir: 'lib')
+
     compile group: 'org.reflections', name: 'reflections', version: '0.9.10'
 }
 

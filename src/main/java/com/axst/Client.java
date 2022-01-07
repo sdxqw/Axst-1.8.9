@@ -2,6 +2,7 @@ package com.axst;
 
 import com.axst.utils.DiscordIPC;
 import com.axst.utils.LoggerUtil;
+import com.axst.utils.SessionChanger;
 import com.axst.utils.fonts.FontUtil;
 
 public class Client {
@@ -10,6 +11,7 @@ public class Client {
 
     public static void onPreInit(){
         DiscordIPC.INSTANCE.init();
+        SessionChanger.getInstance().setUserOffline("xNtrowIsBaka");
     }
 
     public static void start(){

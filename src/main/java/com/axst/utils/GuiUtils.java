@@ -6,10 +6,30 @@
 
 package com.axst.utils;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.ThreadDownloadImageData;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GuiUtils {
+
+    private static final Map<String, ResourceLocation> playerSkins = new HashMap<>();
+
+    public static ResourceLocation getHeadLocation(String displayName) {
+        ResourceLocation playerSkin = (ResourceLocation)playerSkins.getOrDefault(displayName, new ResourceLocation("axst/heads/" + displayName + ".png"));
+        if (!playerSkins.containsKey(displayName)) {
+            ThreadDownloadImageData skinData = new ThreadDownloadImageData(null, "https://minotar.net/helm/" + displayName + "/32.png", new ResourceLocation("axst/heads/steve.png"), null);
+            (Minecraft.getMinecraft()).getTextureManager().loadTexture(playerSkin, skinData);
+            playerSkins.put(displayName, playerSkin);
+        } else {
+
+        }
+        return playerSkin;
+    }
 
     public static void setColor(int color) {
         float a = (color >> 24 & 0xFF) / 255.0F;

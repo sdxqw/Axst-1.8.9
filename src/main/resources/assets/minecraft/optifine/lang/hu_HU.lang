@@ -41,7 +41,7 @@ of.message.openglError=§eOpenGL Error§f: %s (%s)
 of.message.shaders.loading=Shader betöltése: %s
 
 of.message.other.reset=Törli az összes videóbeállítást az alapértelmezett értékekre?
-
+ 
 # Video settings
 
 options.graphics.tooltip.1=Vizuális minőség
