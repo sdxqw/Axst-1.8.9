@@ -7,10 +7,6 @@ public class LoggerUtil {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static void printInfo(Object msg){
-        System.out.println("[Axst] "+msg);
-    }
-
     public static void info (Object msg, Object... params)
     {
         LOGGER.info(String.valueOf(msg), params);
