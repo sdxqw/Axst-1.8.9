@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.axst.mixins",
+  "refmap": "mixins.axst.json",
+  "verbose": true,
+  "mixins": [
+    "IMixin",
+    "MixinMinecraft",
+    "gui.MixinGuiMainMenu"
+  ]
+}
