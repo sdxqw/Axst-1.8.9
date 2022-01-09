@@ -73,17 +73,16 @@ public class MixinGuiMainMenu extends GuiScreen {
         if(mc.getSession().getUsername() != null){
             boolean hovering = mouseX >= 8 && mouseX <= 35 + Client.textRenderer.getWidth(mc.getSession().getUsername()) && mouseY <= 22;
             if(hovering){
-                color = new Color(255,255,255,125);
-
+                color = new Color(191, 191, 191, 65);
             }else{
-                color = new Color(255,255,255,75);
+                color = new Color(0, 0, 0, 76);
             }
+            Client.textRenderer.drawStringWithShadow(mc.getSession().getUsername(), 28, 11, colorFont.getRGB());
+            GuiUtils.drawRoundOutline(8, 7, (int) ((float)36 + Client.textRenderer.getWidth(mc.getSession().getUsername())), 23, 4f, 1.0f,color.getRGB());
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             ResourceLocation headLocation = GuiUtils.getHeadLocation(mc.getSession().getUsername());
             mc.getTextureManager().bindTexture(headLocation);
-            GuiUtils.drawRoundOutline(8, 7, (int) ((float)36 + Client.textRenderer.getWidth(mc.getSession().getUsername())), 23, 4f, 1.0f,color.getRGB());
-            GuiUtils.drawRoundRect(8, 7, (float)36 + Client.textRenderer.getWidth(mc.getSession().getUsername()), 23, 7f, color.getRGB());
             drawModalRectWithCustomSizedTexture(12, 9, 0,0,12,12, 12, 12);
-            Client.textRenderer.drawStringWithShadow(mc.getSession().getUsername(), 28, 11, colorFont.getRGB());
         }
         GlStateManager.popMatrix();
         Client.textRenderer.drawString(watermark,4, this.height - 15, -1);
