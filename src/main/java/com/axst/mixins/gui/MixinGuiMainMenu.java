@@ -52,7 +52,6 @@ public class MixinGuiMainMenu extends GuiScreen {
         buttonList.add(new GuiButtonsIcons(101, width / 2 - 22, height / 2 + 33, 22, 22, "cosmetics.png", 16));
     }
 
-
     /**
      * MainMenu Method Overwrite.
      *
