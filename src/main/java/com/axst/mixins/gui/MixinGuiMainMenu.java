@@ -3,7 +3,9 @@ package com.axst.mixins.gui;
 import com.axst.Client;
 import com.axst.ui.GuiButtons;
 import com.axst.ui.GuiButtonsIcons;
+import com.axst.utils.DiscordIPC;
 import com.axst.utils.GuiUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -40,6 +42,7 @@ public abstract class MixinGuiMainMenu extends GuiScreen {
      */
     @Overwrite
     public void initGui(){
+        DiscordIPC.INSTANCE.update("Idle (Main Menu)","IGN: " + Minecraft.getMinecraft().getSession().getUsername());
         buttonList.add(new GuiButtonsIcons(0, width / 2 + 1, height / 2 + 33, 22, 22, "settings.png", 16));
         buttonList.add(new GuiButtons(1, width / 2 - 92, height / 2 - 16, 180, 20, "S I N G L E P L A Y E R"));
         buttonList.add(new GuiButtons(2, width / 2 - 92, height / 2 + 8, 180, 20, "M U L T I P L A Y E R"));
