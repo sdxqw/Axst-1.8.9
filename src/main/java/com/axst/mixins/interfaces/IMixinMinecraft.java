@@ -1,4 +1,4 @@
-package com.axst.mixins;
+package com.axst.mixins.interfaces;
 
 
 import net.minecraft.client.Minecraft;
@@ -7,10 +7,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(Minecraft.class)
-public interface IMixin {
+public interface IMixinMinecraft {
 
     @Accessor("session")
     void setSession(Session session);
-
 
 }

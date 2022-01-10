@@ -2,11 +2,13 @@
   "required": true,
   "compatibilityLevel": "JAVA_8",
   "package": "com.axst.mixins",
-  "refmap": "mixins.axst.json",
+  "refmap": "mixins.axst.refmap.json",
   "verbose": true,
   "mixins": [
-    "IMixin",
     "MixinMinecraft",
-    "gui.MixinGuiMainMenu"
+    "entity.MixinEntityPlayerSP",
+    "gui.MixinGuiMainMenu",
+    "interfaces.IMixinMinecraft",
+    "settings.MixinGameSettings"
   ]
 }

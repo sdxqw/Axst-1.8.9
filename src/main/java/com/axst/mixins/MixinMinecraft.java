@@ -1,6 +1,7 @@
 package com.axst.mixins;
 
 import com.axst.Client;
+import com.axst.event.impl.TickEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.DefaultResourcePack;
 import net.minecraft.util.ResourceLocation;
@@ -33,17 +34,23 @@ public abstract class MixinMinecraft {
 
     @Inject(method = "startGame", at = @At("HEAD"))
     public void injectStartGame1(CallbackInfo ci) {
-        Client.onPreInit();
+        Client.instance.onPreInit();
     }
 
     @Inject(method = "startGame", at = @At("RETURN"))
     public void injectStartGame2(CallbackInfo ci) {
-        Client.start();
+        Client.instance.onStart();
     }
 
     @Inject(method = "shutdownMinecraftApplet", at = @At("HEAD"))
     public void injectShutdownMinecraftApplet(CallbackInfo ci) {
-        Client.onShutdown();
+        Client.instance.onShutdown();
+    }
+
+    @Inject(method = "runTick", at = @At("RETURN"))
+    private void runTick(CallbackInfo info)
+    {
+        new TickEvent().call();
     }
 
     /**

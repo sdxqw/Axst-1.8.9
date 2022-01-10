@@ -1,6 +1,6 @@
 package com.axst.utils;
 
-import com.axst.mixins.IMixin;
+import com.axst.mixins.interfaces.IMixinMinecraft;
 import com.mojang.authlib.Agent;
 import com.mojang.authlib.AuthenticationService;
 import com.mojang.authlib.UserAuthentication;
@@ -73,7 +73,7 @@ public class SessionChanger {
     //Sets the session.
     //You need to make this public, and remove the final modifier on the session Object.
     public void setSession(Session session) {
-        ((IMixin) Minecraft.getMinecraft()).setSession(session);
+        ((IMixinMinecraft) Minecraft.getMinecraft()).setSession(session);
     }
 
     //Login offline mode
