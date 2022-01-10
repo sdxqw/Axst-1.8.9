@@ -3,13 +3,13 @@ package com.axst;
 import com.axst.event.EventManager;
 import com.axst.event.EventTarget;
 import com.axst.event.impl.TickEvent;
+import com.axst.ui.GuiSomethings;
 import com.axst.utils.DiscordIPC;
 import com.axst.utils.Keybind;
 import com.axst.utils.LoggerUtil;
 import com.axst.utils.SessionChanger;
 import com.axst.utils.fonts.CustomFontRenderer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiMainMenu;
 
 public class Client {
     public static Client instance = new Client();
@@ -41,7 +41,7 @@ public class Client {
     {
         if (Keybind.OpenSomeThings.isPressed())
         {
-            mc.displayGuiScreen(new GuiMainMenu());
+            mc.displayGuiScreen(new GuiSomethings());
         }
     }
 

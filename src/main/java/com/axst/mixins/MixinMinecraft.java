@@ -25,7 +25,6 @@ public abstract class MixinMinecraft {
     @Final
     private DefaultResourcePack mcDefaultResourcePack;
 
-
     @Inject(method = "createDisplay", at = @At("RETURN"))
     public void injectCreateDisplay(CallbackInfo ci){
         // its unknow bc idk how to add git commit id lol
