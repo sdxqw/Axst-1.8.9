@@ -1,6 +1,5 @@
 package com.axst.utils.fonts;
 
-import com.axst.utils.CharColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,4 +1,4 @@
-package com.axst.utils;
+package com.axst.utils.fonts;
 
 import java.util.regex.Pattern;
 
