@@ -10,5 +10,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface IMixin {
 
     @Accessor("session")
-    public void setSession(Session session);
+    void setSession(Session session);
+
+
 }
