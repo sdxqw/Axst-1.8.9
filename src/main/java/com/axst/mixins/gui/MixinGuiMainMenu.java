@@ -22,6 +22,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.awt.*;
 import java.io.IOException;
 
+import static com.axst.utils.GuiUtils.drawRoundOutline;
+
 @Mixin(GuiMainMenu.class)
 public abstract class MixinGuiMainMenu extends GuiScreen {
 
@@ -77,7 +79,7 @@ public abstract class MixinGuiMainMenu extends GuiScreen {
                 color = new Color(0, 0, 0, 76);
             }
             Client.textRenderer.drawStringWithShadow(mc.getSession().getUsername(), 28, 11, colorFont.getRGB());
-            GuiUtils.drawRoundOutline(8, 7, (int) ((float)36 + Client.textRenderer.getWidth(mc.getSession().getUsername())), 23, 4f, 1.0f,color.getRGB());
+            drawRoundOutline(8, 7, (int) ((float)36 + Client.textRenderer.getWidth(mc.getSession().getUsername())), 23, 4f, 1.0f,color.getRGB());
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             ResourceLocation headLocation = GuiUtils.getHeadLocation(mc.getSession().getUsername());
             mc.getTextureManager().bindTexture(headLocation);
