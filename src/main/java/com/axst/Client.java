@@ -21,7 +21,7 @@ public class Client {
 
     public void onPreInit(){
         DiscordIPC.INSTANCE.init();
-        SessionChanger.getInstance().setUserOffline("xNtrowIsBaka");
+        SessionChanger.getInstance().setUserOffline("SuchSpeed");
     }
 
     public void onStart(){

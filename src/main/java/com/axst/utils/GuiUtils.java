@@ -15,6 +15,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class GuiUtils {
 
     private static final Map<String, ResourceLocation> playerSkins = new HashMap<>();
