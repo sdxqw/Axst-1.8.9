@@ -12,6 +12,8 @@ import java.awt.*;
 
 public class GuiSomethings extends GuiScreen {
 
+    private int field_146444_f;
+
     @Override
     public void initGui() {
         ((IEnitityRenderer) mc.entityRenderer).invokeLoadShader(new ResourceLocation("shaders/post/blur.json"));
@@ -19,6 +21,7 @@ public class GuiSomethings extends GuiScreen {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        this.drawDefaultBackground();
         Client.textRenderer.drawStringWithShadow(mc.getSession().getUsername(), 28, 11, new Color(255,255,255).getRGB());
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         ResourceLocation headLocation = GuiUtils.getHeadLocation(mc.getSession().getUsername());
@@ -36,5 +39,11 @@ public class GuiSomethings extends GuiScreen {
     @Override
     public boolean doesGuiPauseGame() {
         return false;
+    }
+
+    public void updateScreen()
+    {
+        super.updateScreen();
+        ++this.field_146444_f;
     }
 }
