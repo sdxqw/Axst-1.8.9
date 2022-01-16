@@ -3,7 +3,7 @@ best uwu not skidded source
 
 thanks to Anshg_#4787 for account list
 
-made by xNtrow#9999 (891245897659347004)
+made by notrothecat#0001 (891245897659347004)
 
 if you need help join here (https://discord.gg/5d5sa6AzU2)
 
